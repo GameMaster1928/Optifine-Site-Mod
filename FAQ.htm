@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <link rel="shortcut icon" href="assets/grass_block.ico">
+    <meta name="description" content="OptiFine - Minecraft performance tuning and advanced graphics">
+    <meta name="keywords" content="optifine, minecraft, fps, lag, antialiasing, hd textures">
+    <link rel="stylesheet" href="assets/style.css" type="text/css">
+    <script src="assets/script.js"></script>
+</head>
+
+<body>
+    <table class="tableRoot">
+        <tbody>
+            <tr>
+                <td class="title">
+                    <!-- Title -->
+                    <a onclick="redirect('index.htm')">OptiFine</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="tableNav">
+                    <!-- Navigation -->
+                    <table class="tableNav">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a onclick="redirect('index.htm')">Home</a>
+                                </td>
+                                <td>
+                                    <a onclick="redirect('Downloads.htm')">Downloads</a>
+                                </td>
+                                <td>
+                                    <a onclick="redirect('Donate.htm')">Donate</a>
+                                </td>
+                                <td>
+                                    <a onclick="redirect('Cape.htm')">Cape</a>
+                                </td>
+                                <td>
+                                    <a onclick="redirect('Login.htm')">Login</a>
+                                </td>
+                                <td>
+                                    <a onclick="redirect('FAQ.htm')">FAQ</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="content">
+                    <!-- Content -->
+
+                    <h2>OptiFine</h2>
+                    <h3>Which OptiFine edition should I get?</h3> OptiFine Ultra is the most popular edition.
+                    <ul>
+                        <li>OptiFine Ultra has the most optimizations and features that can increase FPS. </li>
+                        <li>OptiFine Standard is more compatible with other mods. </li>
+                        <li>OptiFine Light may be more helpful for underpowered laptops and notebooks, but it does not have any advanced features and is not compatible with ModLoader and Forge.</li>
+                    </ul>
+
+                    <h3>Do I have to configure OptiFine to get better FPS?</h3> Usually no. OptiFine comes with many optimizations that should increase the FPS without any configuration. You can further increase the FPS by configuring the Video Settings and finding the trade-off between quality and performance that works best for you.
+
+                    <h3>How can I configure OptiFine for best FPS?</h3> Go to the Video Settings menu and look at the tooltip shown for every setting. It should show which value to set for better FPS and which for better quality.
+
+                    <h3>Why are some world chunks flickering with OptiFine?</h3> Most probably you have enabled "Chunk Loading: Multi-Core", but the graphics card driver does not support it properly. To fix it go to the graphics card control panel and set "Threaded Optimization" or "OpenGL Threading" to OFF (<a href="http://i.imgur.com/ciwc6.jpg">example</a>). For best results disable it globally, not only for java.exe or minecraft.exe.
+
+                    <h3>Why am I getting the same or less FPS with OptiFine installed?</h3> OptiFine generally increases the FPS (200%+ is common) and in the worst case it should be the same as vanilla Minecraft. There are many reasons why in some cases the FPS with OptiFine may be the same or lower than vanilla:
+                    <br>
+                    <ul>
+                        <li>you might have enabled some higher quality settings that can decrease the FPS (for example: Render Distance Extreme, Antialiasing, Anisotropic Filtering). To reset the Video Settings to their default values go to Video Settings -&gt; Other -&gt; Reset Video Settings.</li>
+                        <li>you might have enabled the FPS limiter in Video Settings</li>
+                        <li>if you are using a HD texture pack, it most probably comes with some quality features that are not recognized by vanilla, but are active with OptiFine and can decrease the FPS. For example: Connected Textures, Custom Sky, Random Mobs, Custom Animations, etc. You can turn these OFF in the Video Settings if you do not need them.</li>
+                        <li>OptiFine may not be installed properly. Make sure to install OptiFine last, so that no other mod is overwriting the OptiFine classes. Exceptions are mods which are specially designed to be installed after OptiFine.</li>
+                        <li>there may be a mod conflict and Minecraft may be reporting a lot of errors in the error log. Check the Minecraft error log to see if this is the case (Magic Launcher can show the error log).</li>
+                    </ul>
+                    To test properly make sure that you are using identical test conditions: same texture pack, same render distance, same world, etc.
+                    <br>
+                    <br> Even if the average FPS reported in the debug screen is the same as vanilla, the gameplay with OptiFine should feel smoother and more fluid. There are several OptiFine options (Chunk Loading, Smooth FPS, Smooth World, etc) that can further reduce the lag spikes and stabilize the framerate.
+
+                    <h3>Can I include OptiFine in my modpack?</h3> Generally no, unless you have an explicit permission from us.
+
+                    <h2>Donator Cape</h2>
+                    <h3>How can I change the design of my cape?</h3> You can login at the <a href="Cape.htm">cape change</a> page and select a new design. The cape change page has a timeout of 2 minutes and the cape has to be changed in this time.
+                    <h3>How long does it take for the cape to get activated?</h3> The cape is activated automatically when the donation payment is complete. Please note that some payment types (bank transfer, eCheck, etc) may take several days to complete. A notification email is sent to the donation email address when the cape is activated.
+
+                    <h3>How can I check if the cape is active?</h3> You can login at the <a href="Cape.htm">cape change</a> page. It will show the current cape design or a notification if the cape is not active. The cape change page can automatically correct upper/lowercase errors in the username.
+
+                    <h3>I donated, but I did not receive a confirmation email and I do not see the cape. What can I do?</h3> Most probably your donation was received without a username. You can login on the <a href="Login.htm">donator login</a> page and assign a username for the cape.
+
+                    <h3>I got the confirmation email, but I do not see the cape on my player, what can I do?</h3> Please check that:
+                    <ul>
+                        <li>the username is correctly spelled, upper/lowercase matters</li>
+                        <li>OptiFine is correctly installed (<a href="http://www.minecraftforum.net/topic/249637-">installation instructions</a>)</li>
+                        <li>the option Video Settings -&gt; Details -&gt; Show Capes is ON</li>
+                        <li>the option Multiplayer Settings -&gt; Show Cape is ON</li>
+                        <li>no firewall or router is blocking OptiFine from accessing the OptiFine server where the cape is located</li>
+                        <li>the cape is visible in single-player worlds. Some servers may modify the player name by adding tags or truncating it, which changes the player identity and the cape may not be displayed.</li>
+                    </ul>
+
+                    <h3>I gave the wrong username when donating, what can I do?</h3> If the username capitalization is not correct (upper/lowercase wrong), then login on the <a href="Cape.htm">cape change</a> page and the capitalization should be automatically fixed.
+                    <br> If the username is still not correct, you can login on the <a href="Login.htm">donator login</a> page where you can assign a new username.
+
+                    <h3>How can I temporarily deactivate my cape?</h3> You can deactivate and reactivate the cape on the <a href="Cape.htm">cape change</a> page.
+
+                    <h3>How can I move my cape to another account?</h3> You can move the cape to another username on the <a href="Cape.htm">cape change</a> page. After the cape is moved to a new username it can only be modified from the new account!.
+                    <br> If you move the cape to a wrong username, you can recover it on the <a href="Login.htm">donator login</a> page.
+
+                    <h3>My cape was active, but it is now missing. How can I recover it?</h3> You can recover the cape on the <a href="Login.htm">donator login</a> page where you can assign a new username for the cape. The cape was most probably moved by someone who knows your Minecraft username (email) and password. You should change your minecraft password to avoid the cape being moved again.
+
+                    <!-- End of content -->
+                </td>
+            </tr>
+            <tr>
+                <td class="footer">
+                    <!-- Footer -->
+                    <a onclick="redirect('Privacy.htm')">Privacy</a> &nbsp;
+                    <a onclick="redirect('Refund.htm')">Refund</a> &nbsp;
+                    <a onclick="redirect('Contact.htm')">Contact</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

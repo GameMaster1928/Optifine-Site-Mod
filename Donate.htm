@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>OptiFine Donate</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" href='assets/grass_block.ico' />
+    <meta name="description" content="OptiFine - Minecraft performance tuning and advanced graphics" />
+    <meta name="keywords" content="optifine, minecraft, fps, lag, antialiasing, hd textures" />
+    <link rel="stylesheet" href="assets/style.css" type="text/css">
+    <script src="assets/script.js"></script>
+    <script type="text/javascript">
+        // Form validation
+        function validateForm() {
+            var capeSelected = document.forms["donate"]["donateCape"].checked;
+            if (capeSelected) {
+                var username = document.forms["donate"]["donateUsername"].value;
+                if (username == "") {
+                    alert("Please enter a minecraft username if you want the cape to be activated automatically.");
+                    document.donate.donateUsername.focus();
+                    return false;
+                }
+                var regexp = /^[a-zA-Z0-9_]+$/;
+                if (!regexp.test(username)) {
+                    alert("Invalid minecraft username: " + username + "\nOnly letters, numbers and '_' are allowed.");
+                    document.donate.donateUsername.focus();
+                    return false;
+                }
+            }
+            // All OK
+            return true;
+        }
+        // On checkbox ActivateCape
+        function onActivateCape() {
+            var checkBoxCape = document.forms["donate"]["donateCape"];
+            var fieldUsername = document.forms["donate"]["donateUsername"];
+            if (checkBoxCape.checked) {
+                fieldUsername.disabled = false;
+                document.getElementById("capeDesign").style.display = 'inline';
+            } else {
+                fieldUsername.disabled = true;
+                fieldUsername.value = "";
+                document.getElementById("capeDesign").style.display = 'none';
+            }
+        }
+    </script>
+
+    <script type="text/javascript" src="assets/jscolor.js"></script>
+
+    <script type="text/javascript">
+        function onCapeColorsSelect() {
+            var capeColors = document.donate.capeColors.value;
+            // Reset
+            document.getElementById("capeCustom").style.display = 'none';
+            document.getElementById("capeBanner").style.display = 'none';
+            // Show custom colors
+            if (capeColors == "custom") {
+                document.getElementById("capeCustom").style.display = 'inline-block';
+                onCapeCustomColorChange();
+            } else if (capeColors == "banner") {
+                document.getElementById("capeBanner").style.display = 'inline-block';
+                onCapeBannerChange();
+            } else {
+                document.getElementById("imgCapePreview").src = 'capes/base/' + capeColors + '.png';
+            }
+        }
+
+        function onCapeCustomColorChange() {
+            var colTop = document.getElementsByName("capeColorTop")[0].value;
+            var colBottom = document.getElementsByName("capeColorBottom")[0].value;
+            var colText = document.getElementsByName("capeColorText")[0].value;
+            var colShadow = document.getElementsByName("capeColorShadow")[0].value;
+            document.getElementById("imgCapePreview").src = 'showCape?colTop=' + colTop + '&colBottom=' + colBottom + '&colText=' + colText + '&colShadow=' + colShadow;
+        }
+
+        function onCapeBannerChange() {
+            var banner = document.donate.capeBannerUrl.value;
+            // Strip the URL
+            var ix = banner.lastIndexOf("?=");
+            if (ix >= 0)
+                banner = banner.substring(ix + 2);
+            // Set format
+            document.donate.capeBannerFormat.value = banner;
+            //
+            var bannerFormat = document.donate.capeBannerFormat.value;
+            //alert("Format: " + bannerFormat);
+            var colTop = document.getElementsByName("capeBannerColorTop")[0].value;
+            var colBottom = document.getElementsByName("capeBannerColorBottom")[0].value;
+            var valign = document.getElementsByName("capeBannerVAlign")[0].value;
+            document.getElementById("imgCapePreview").src = 'showBanner?format=' + bannerFormat + '&colTop=' + colTop + '&colBottom=' + colBottom + '&valign=' + valign;
+        }
+        var timerBannerUrl;
+
+        function onCapeBannerChangeDelay() {
+            clearTimeout(timerBannerUrl);
+            timerBannerUrl = setTimeout(onCapeBannerChange, 500);
+        }
+    </script>
+
+</head>
+
+<body OnLoad="document.getElementById('tablePaymentProviders').style.display = 'inline'; document.donate.donateUsername.focus();">
+    <table class="tableRoot">
+        <tr>
+            <td class="title">
+                <!-- Title -->
+                <a onclick="redirect('index.htm')">OptiFine</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="tableNav">
+                <!-- Navigation -->
+                <table class="tableNav">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a onclick="redirect('index.htm')">Home</a>
+                            </td>
+                            <td>
+                                <a onclick="redirect('Downloads.htm')">Downloads</a>
+                            </td>
+                            <td>
+                                <a onclick="redirect('Donate.htm')">Donate</a>
+                            </td>
+                            <td>
+                                <a onclick="redirect('Cape.htm')">Cape</a>
+                            </td>
+                            <td>
+                                <a onclick="redirect('Login.htm')">Login</a>
+                            </td>
+                            <td>
+                                <a onclick="redirect('FAQ.htm')">FAQ</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="content">
+                <!-- Content -->
+                <noscript>
+                    <p style="color:red; font-size:x-large; display:inline">
+                        JavaScript is disabled.
+                        <br> This page needs JavaScript in order to function properly.
+                    </p>
+                </noscript>
+                <p style="color:red; font-size:large; display:none">
+                    In the next several hours the automatic cape activation may be delayed due to server upgrade.
+                </p>
+                <p>
+                    Donate to OptiFine and receive the <a href="http://imgur.com/zXIkv">OptiFine cape</a> as a sign of your awesomeness.
+                    <br> The cape is visible to everyone using OptiFine 1.1 B or newer.
+                    <br> Thank you for being awesome.
+                </p>
+                <form name="donate" action="" method="POST" onsubmit="return validateForm()">
+                    <label>
+                        <input type="checkbox" name="donateCape" checked onClick="onActivateCape()"> Activate cape for minecraft username:
+                    </label>
+                    <input type="text" name="donateUsername" size="30" maxlength="16" autofocus="autofocus"> (case-sensitive)
+                    <br>
+                    <br>
+                    <span id="capeDesign" style="display:inline; vertical-align:top;">
+      Design: 
+      <select name="capeColors" onchange="onCapeColorsSelect();" style="width: 8em">
+        <option value="standard">Standard</option>
+        <option value="white">White</option>
+        <option value="gray">Gray</option>
+        <option value="black">Black</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="yellow">Yellow</option>
+        <option value="purple">Purple</option>
+        <option value="cyan">Cyan</option>
+        <option value="custom">Custom...</option>
+        <option value="banner">Banner...</option>
+      </select>
+      <span id="capePreview" style="display:inline-block; vertical-align:top; margin-left: 10px">
+        <img id="imgCapePreview" src="capes/base/standard.png" height="88" class="scaleNearest">
+      </span>
+                    <table id="capeCustom" style="display:none; margin-left: 10px; vertical-align:top" cellspacing="5px">
+                        <tr>
+                            <td>Top:</td>
+                            <td>
+                                <input class="color" type="text" value="882D2D" name="capeColorTop" size="5" onchange="onCapeCustomColorChange();">
+                            </td>
+                            <td>Text:</td>
+                            <td>
+                                <input class="color" type="text" value="E29F00" name="capeColorText" size="5" onchange="onCapeCustomColorChange();">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Bottom:</td>
+                            <td>
+                                <input class="color" type="text" value="5C1C1C" name="capeColorBottom" size="5" onchange="onCapeCustomColorChange();">
+                            </td>
+                            <td>Shadow:</td>
+                            <td>
+                                <input class="color" type="text" value="441616" name="capeColorShadow" size="5" onchange="onCapeCustomColorChange();">
+                            </td>
+                        </tr>
+                    </table>
+                    <table id="capeBanner" style="display:none; margin-left: 10px; vertical-align:top" cellspacing="5px">
+                        <tr>
+                            <td><a href="http://www.needcoolshoes.com/banner" target="_blank">URL:</a></td>
+                            <td>
+                                <input type="text" value="" name="capeBannerUrl" size="9" oninput="onCapeBannerChangeDelay();">
+                            </td>
+                            <td>Top:</td>
+                            <td>
+                                <input class="color" type="text" value="404040" name="capeBannerColorTop" size="5" onchange="onCapeBannerChange();">
+                            </td>
+                            <td>
+                                <input type="hidden" value="" name="capeBannerFormat">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Align:</td>
+                            <td>
+                                <select name="capeBannerVAlign" onchange="onCapeBannerChange();" style="width: 6em">
+                                    <option value="s">Scale</option>
+                                    <option value="t">Top</option>
+                                    <option value="m">Middle</option>
+                                    <option value="b">Bottom</option>
+                                </select>
+                            </td>
+                            <td>Bottom:</td>
+                            <td>
+                                <input class="color" type="text" value="202020" name="capeBannerColorBottom" size="5" onchange="onCapeBannerChange();">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <span style="font-size: small;">
+              You can use the <a href="http://www.needcoolshoes.com/banner" target="_blank">Banner Generator</a> to design the banner, <br>
+              then copy and paste the banner URL in the field above. <br>
+              Up to 8 layers can be used, the Mojang logo is not allowed.
+            </span>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    </span>
+                    <table class="tableDonate" id="tablePaymentProviders" style="display:none">
+                        <tr>
+                            <td style="width: 260px;">Donate with:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="image" src="assets/button_paymentwall.png" name="buttonPaymentwall" alt="Paymentwall">
+                            </td>
+                            <td>PayPal, PaySafeCard, UKash, Prepaid Cards, e-Wallets,
+                                <br>Credit Card, Bank Transfer and many other ...</td>
+                        </tr>
+                    </table>
+                </form>
+                <!-- End of content -->
+            </td>
+        </tr>
+        <tr>
+            <td class="footer">
+                <!-- Footer -->
+                <a onclick="redirect('Privacy.htm')">Privacy</a> &nbsp;
+                <a onclick="redirect('Refund.htm')">Refund</a> &nbsp;
+                <a onclick="redirect('Contact.htm')">Contact</a>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

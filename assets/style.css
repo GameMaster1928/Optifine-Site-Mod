@@ -1,0 +1,173 @@
+* {
+    transition-duration: 0.5s;
+    scroll-behavior: smooth;
+    border-radius: 10px;
+}
+
+img {
+    border-radius: 0;
+}
+
+body {
+    image-rendering: crisp-edges;
+    background-image: url("obsidian.png");
+    background-attachment: fixed;
+    background-size: 64px;
+    overflow-y: scroll;
+}
+
+a {
+    color: rgb(100, 128, 255);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, p, li, td {
+    color: rgb(225, 225, 225);
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+    font-family: "Courier New", Courier, monospace;
+}
+
+p, a, li, td {
+    font-family: "Century Gothic", Arial, Helvetica, sans-serif;
+}
+
+input, select {
+    border: 2px solid rgb(50, 50, 50);
+    color: rgb(225, 225, 225);
+    background-color: rgb(40, 40, 40);
+}
+
+.tableRoot {
+    margin: 0 auto;
+    width: 850px;
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgb(128, 128, 128);
+}
+
+.title {
+    font-family: Times, serif;
+    font-size: 300%;
+    font-weight: bold;
+    background-color: rgb(50, 50, 50, 0.5);
+    padding-left: 15px;
+}
+
+.title a {
+    color: rgb(100, 128, 255);
+    text-decoration: none;
+}
+
+.tableNav {
+    text-align: left;
+    background: rgb(40, 40, 40, 0.5);
+    border-width: 0px
+}
+
+.tableNav a {
+    color: rgb(100, 128, 255);
+    text-decoration: none;
+}
+
+.tableNav a:hover {
+    color: rgb(100,128,255);
+    text-decoration: underline;
+}
+
+.tableNav tr td {
+    padding-left: 15px;
+}
+
+.content {
+    padding: 18px;
+    padding-top: 10px;
+    text-align: left;
+    text-indent: 0px;
+    margin: 10px;
+    opacity: 0;
+}
+
+.footer {
+    font-size: small;
+    text-align: right;
+    background: rgb(40, 40, 40, 0.5);
+    padding: 5px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: rgb(100, 128, 255);
+}
+
+.downloadTable {
+    border-collapse: collapse;
+}
+
+.downloadLineFirst {
+    background-color: rgb(40, 40, 40, 0.5);
+}
+
+.downloadLineFile {
+    width: 20em;
+}
+
+.downloadLineFileFirst {
+    width: 20em;
+}
+
+.downloadLineDownloadFirst {
+    font-weight: bold;
+}
+
+.downloadLineMirror {
+    width: 5em;
+}
+
+.downloadLineDate {
+    width: 10em;
+    font-size: 80%;
+}
+
+.downloadLineChangelog {
+    width: 6em;
+}
+
+ LI STRONG {
+    line-height: 200%;
+}
+
+.tableDownload {
+    margin: 0 auto;
+}
+
+.tableDonate TR {
+    height: 35px;
+}
+
+.scaleNearest {
+    image-rendering: crisp-edges;
+}
+
+.tableData {
+    border-collapse: collapse;
+}
+
+.tableData th {
+    background-color: rgb(40, 40, 40, 0.5);
+}
+
+.tableData, .tableData th, .tableData td {
+    border: 1px solid white;
+}
+
+.tableData th,.tableData td {
+    padding: 5px;
+}
+
+.tableDataDis {
+    background-color: rgb(50, 50, 50, 0.5);
+}
