@@ -10,16 +10,21 @@ function redirect(url) {
         }, 500);
     } else {
         window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth"
+            top: window.scrollY - 1
         });
         setTimeout(() => {
-            document.getElementsByClassName("content")[0].style.opacity = "0";
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth"
+            });
             setTimeout(() => {
-                location = url;
+                document.getElementsByClassName("content")[0].style.opacity = "0";
+                setTimeout(() => {
+                    location = url;
+                }, 500);
             }, 500);
-        }, 500);
+        }, 50);
     }
 }
 
