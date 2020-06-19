@@ -13,7 +13,7 @@ img {
 
 body {
     image-rendering: crisp-edges;
-    background-image: url("obsidian.png");
+    background-image: url("background.png");
     background-attachment: fixed;
     background-size: 64px;
     overflow-y: scroll;
